@@ -1,0 +1,42 @@
+{
+  "name": "wy-music",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.1",
+    "better-scroll": "^1.6.3",
+    "js-base64": "^2.4.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "node-sass": "^4.7.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sass": "^1.0.0-beta.4",
+    "sass-loader": "^6.0.6"
+  },
+  "proxy": {
+    "/proxy": {
+      "target": "http://m.kugou.com",
+      "changeOrigin":true
+    },
+    "/aproxy":{
+      "target":"http://mobilecdn.kugou.com",
+      "changeOrigin":true
+    },
+    "/bproxy":{
+      "target":"http://www.kugou.com",
+      "changeOrigin":true
+    }
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
