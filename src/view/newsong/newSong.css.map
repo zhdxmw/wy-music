@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAC,CAAC;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,iBAAiB;EACzB,QAAQ,EAAE,MAAM",
+"sources": ["newSong.scss"],
+"names": [],
+"file": "newSong.css"
+}

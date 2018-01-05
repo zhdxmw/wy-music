@@ -1,0 +1,20 @@
+.logo-container {
+  padding: 10px;
+  background-color: #2CA2F9;
+  overflow: hidden;
+  height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  .home{
+    img{
+      height: 100%;
+    }
+  }
+}
+
+.headnav{
+  margin-top: 45px;
+}
