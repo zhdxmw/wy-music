@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as playerAction from '../redux/action/Index'
+import $http from '../axios'
+const that = this;
 export default (WrappedComponent) => {
     class NewComponent extends React.Component {
         constructor(){
@@ -9,6 +11,7 @@ export default (WrappedComponent) => {
             this.state = {
                 title: ''
             }
+
         }
 
         componentDidMount() {
@@ -22,22 +25,88 @@ export default (WrappedComponent) => {
             //
         }
 
-        play(list,index) {
-          // document.getElementById('audioPlayer').pause()
+        setList(list,index,hash){
             var listInfo = {
                 songList: list,
                 songIndex: index
             }
             this.props.changeSongActions.setList({listInfo:listInfo})
+            this.play(hash);
+        }
+
+        play(hash) {
+           $http.get('/dproxy/yy/index.php?r=play/getdata',{
+                params:{
+                    hash:hash
+                }
+            }).then(res => {
+                res = res.data.data;
+                const aduio = {
+                    songUrl:res.play_url,
+                    imgUrl: res.img,
+                    title: res.audio_name,
+                    singer: res.author_name,
+                    currentLength: 0,
+                    songLength: res.timelength / 1000,
+                    currentFlag: false
+                }
+                this.props.changeSongActions.playSong({audio:aduio})
+
+                const player = this.props.player;
+                const newPlayer = {
+                    detailPlayerFlag:player.detailPlayerFlag,
+                    showPlayer: player.showPlayer,
+                    isPlay: true,
+                };
+                this.props.changeSongActions.playState({player:newPlayer})
+            })
+        }
+
+        playState(){
+            if(this.props.audio.songUrl !== ''){
+                const player = this.props.player;
+                if(player.isPlay){
+                    document.getElementById('audioPlayer').pause()
+                }else{
+                    document.getElementById('audioPlayer').play()
+                }
+                const newPlayer = {
+                    detailPlayerFlag:player.detailPlayerFlag,
+                    showPlayer: player.showPlayer,
+                    isPlay: !player.isPlay,
+                };
+                this.props.changeSongActions.playState({player:newPlayer})
+            }
+        }
+        nextSong(){
+            if(this.props.audio.songUrl !== ''){
+                var index = this.props.listInfo.songIndex === this.props.listInfo.songList.length -1 ? 0 : this.props.listInfo.songIndex + 1;
+
+                var hash = this.props.listInfo.songList[index].hash;
+
+                this.setList(this.props.listInfo.songList,index,hash);
+            }
+
+        }
+
+        prevSong(){
+            if(this.props.audio.songUrl !== ''){
+                var index = this.props.listInfo.songIndex === 0 ? this.props.listInfo.songList.length -1 : this.props.listInfo.songIndex - 1;
+
+                var hash = this.props.listInfo.songList[index].hash;
+
+                this.setList(this.props.listInfo.songList,index,hash);
+            }
+
         }
 
         render() {
-
-            return <WrappedComponent {...this.props}  {...this.state} play={this.play.bind(this)}/>
+            //prevSong={this.props.prevSong.bind(this)}
+            return <WrappedComponent {...this.props}  {...this.state} play={this.setList.bind(this)}  nextSong={this.nextSong.bind(this)} playState={this.playState.bind(this)}/>
         }
     }
     function mapStateToProps(state) {
-        return {player:state.change_song.player,audio:state.change_song.audio,listInfo:state.change_song.listInfo}
+        return {player:state.change_song.player,audio:state.change_song.audio,listInfo:state.change_song.listInfo,audioLoadding:state.audioLoadding}
     }
     function mapDispatchToProps(dispatch) {
         return {

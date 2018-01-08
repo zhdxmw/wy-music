@@ -50,12 +50,9 @@ class NewSong extends React.Component{
         }
     }
 
-    playSong(item){
-        console.log(item)
-    }
     render() {
         var songList = this.state.songList.map((item,index) => (
-            <Item onClick = {this.props.play.bind(this,this.state.songList,index)} multipleLine key = {index} arrow = "horizontal">
+            <Item onClick = {this.props.play.bind(this,this.state.songList,index,item.hash)} multipleLine key = {index} arrow = "horizontal">
                 {item.filename}
                 <img src={playIcon} className="play"/>
             </Item>

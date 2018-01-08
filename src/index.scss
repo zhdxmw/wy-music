@@ -5,3 +5,8 @@ html,body,#root,.router{
   height: 100%;
   overflow: hidden;
 }
+.text-hide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

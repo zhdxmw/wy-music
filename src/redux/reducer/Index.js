@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import {SET_List} from '../action/Index'
+import {SET_List,PLAY_SONG,PLAY_STATE} from '../action/Index'
 const initState = {
     audio: {
         songUrl: '',
@@ -32,6 +32,10 @@ const initState = {
 function change_song(state = initState, action) {
     switch (action.type) {
         case SET_List:
+            return Object.assign({},state,action.data)
+        case PLAY_SONG:
+            return Object.assign({},state,action.data)
+        case PLAY_STATE:
             return Object.assign({},state,action.data)
         default:
             return state

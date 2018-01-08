@@ -2,10 +2,42 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 30px;
+  height: 50px;
   background: rgba(0, 0, 0, 0.8);
+  padding: 7px;
   z-index: 11; }
   .player .audio-panel {
-    color: #ffffff; }
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 50px; }
+    .player .audio-panel .song-info {
+      width: 50%;
+      padding: 0 3%; }
+      .player .audio-panel .song-info .song {
+        font-size: 16px;
+        margin-bottom: 6px; }
+    .player .audio-panel .control-panel {
+      display: flex;
+      height: 100%;
+      width: 30%; }
+      .player .audio-panel .control-panel .player-play {
+        width: 50%;
+        height: 100%;
+        background: url("../../static/images/play_icon.png") center no-repeat;
+        background-size: auto 70%; }
+      .player .audio-panel .control-panel .player-pause {
+        width: 50%;
+        height: 100%;
+        background: url("../../static/images/pause_icon.png") center no-repeat;
+        background-size: auto 70%; }
+      .player .audio-panel .control-panel .nextSong {
+        width: 50%;
+        height: 100%;
+        background: url("../../static/images/next_icon.png") center no-repeat;
+        background-size: auto 70%; }
+  .player .player-icon {
+    width: 50px;
+    height: 50px; }
 
 /*# sourceMappingURL=player.css.map */
