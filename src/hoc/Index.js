@@ -35,7 +35,9 @@ export default (WrappedComponent) => {
         }
 
         play(hash) {
-           $http.get('/dproxy/yy/index.php?r=play/getdata',{
+            //loading
+            this.props.changeSongActions.Loadding({audioLoadding:true})
+            $http.get('/dproxy/yy/index.php?r=play/getdata',{
                 params:{
                     hash:hash
                 }
@@ -44,6 +46,7 @@ export default (WrappedComponent) => {
                 const aduio = {
                     songUrl:res.play_url,
                     imgUrl: res.img,
+                    lyrics: res.lyrics,
                     title: res.audio_name,
                     singer: res.author_name,
                     currentLength: 0,
@@ -52,33 +55,31 @@ export default (WrappedComponent) => {
                 }
                 this.props.changeSongActions.playSong({audio:aduio})
 
-                const player = this.props.player;
-                const newPlayer = {
-                    detailPlayerFlag:player.detailPlayerFlag,
-                    showPlayer: player.showPlayer,
-                    isPlay: true,
-                };
-                this.props.changeSongActions.playState({player:newPlayer})
+                const player = {...this.props.player};
+                player.isPlay = true;
+                this.props.changeSongActions.playState({player:player})
+
+                this.props.changeSongActions.Loadding({audioLoadding:false})
             })
         }
 
-        playState(){
+        playState(e){
+            e.stopPropagation();
             if(this.props.audio.songUrl !== ''){
-                const player = this.props.player;
+                var player = {...this.props.player};
                 if(player.isPlay){
                     document.getElementById('audioPlayer').pause()
                 }else{
                     document.getElementById('audioPlayer').play()
                 }
-                const newPlayer = {
-                    detailPlayerFlag:player.detailPlayerFlag,
-                    showPlayer: player.showPlayer,
-                    isPlay: !player.isPlay,
-                };
-                this.props.changeSongActions.playState({player:newPlayer})
+                player.isPlay = !player.isPlay;
+                this.props.changeSongActions.playState({player:player})
             }
         }
-        nextSong(){
+        nextSong(e){
+            if(e){
+                e.stopPropagation();
+            }
             if(this.props.audio.songUrl !== ''){
                 var index = this.props.listInfo.songIndex === this.props.listInfo.songList.length -1 ? 0 : this.props.listInfo.songIndex + 1;
 
@@ -99,14 +100,27 @@ export default (WrappedComponent) => {
             }
 
         }
+        timeUpdate(params,value){
+            var time;
+            if(params === true){
+                //手动设置播放时间
+                time = value;
+                document.getElementById('audioPlayer').currentTime = value;
+            }else{
+                time = document.getElementById('audioPlayer').currentTime;
+            }
+            var audio = {...this.props.audio}
+            audio.currentLength = time;
+            this.props.changeSongActions.playSong({audio:audio})
+        }
 
         render() {
             //prevSong={this.props.prevSong.bind(this)}
-            return <WrappedComponent {...this.props}  {...this.state} play={this.setList.bind(this)}  nextSong={this.nextSong.bind(this)} playState={this.playState.bind(this)}/>
+            return <WrappedComponent {...this.props}  {...this.state}  play={this.setList.bind(this)} prevSong={this.prevSong.bind(this)} change={this.timeUpdate.bind(this)} nextSong={this.nextSong.bind(this)} playState={this.playState.bind(this)}/>
         }
     }
     function mapStateToProps(state) {
-        return {player:state.change_song.player,audio:state.change_song.audio,listInfo:state.change_song.listInfo,audioLoadding:state.audioLoadding}
+        return {player:state.change_song.player,audio:state.change_song.audio,listInfo:state.change_song.listInfo,audioLoadding:state.change_song.audioLoadding}
     }
     function mapDispatchToProps(dispatch) {
         return {

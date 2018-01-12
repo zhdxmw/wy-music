@@ -5,7 +5,7 @@ import {Carousel,WhiteSpace,WingBlank,List} from 'antd-mobile'
 import WrappedComponent from '../../hoc/Index'
 import './newSong.css'
 import playIcon from '../../static/images/order-ring.png'
-
+import Headnav from '../../component/head/Headnav'
 
 const Item = List.Item;
 
@@ -24,16 +24,15 @@ class NewSong extends React.Component{
         }
         $http.get('/proxy/?json=true').then(res => {
 
-            that.setState({
-                bannerList : res.data.banner,
-                songList : res.data.data,
-                title : 'Change'
-            })
-            console.log(that.state.bannerList)
+                that.setState({
+                    bannerList : res.data.banner,
+                    songList : res.data.data,
+                    title : 'Change'
+                })
         })
 
         $http.get('/sproxy/search/song?format=json&keyword=3&page=1&pagesize=30&showtype=1').then(res => {
-            console.log(res)
+
         })
     }
     componentWillMount() {
@@ -52,9 +51,8 @@ class NewSong extends React.Component{
 
     render() {
         var songList = this.state.songList.map((item,index) => (
-            <Item onClick = {this.props.play.bind(this,this.state.songList,index,item.hash)} multipleLine key = {index} arrow = "horizontal">
+            <Item className="rankItem" onClick = {this.props.play.bind(this,this.state.songList,index,item.hash)} multipleLine key = {index} arrow = "horizontal">
                 {item.filename}
-                <img src={playIcon} className="play"/>
             </Item>
         ))
         var carousel = this.state.bannerList.map((item,index) => (
@@ -75,25 +73,29 @@ class NewSong extends React.Component{
             </a>
         ))
         return (
-            <div className="newSong" ref="newsWrpper" >
-                <div className="wrap">
-                    <Carousel
-                        autoplay
-                        infinite
-                        selectedIndex={1}
-                        autoplayInterval={3000}
-                        resetAutoplay={false}
-                        beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                        afterChange={index => console.log('slide to', index)}
-                    >
-                        {carousel}
-                    </Carousel>
-                    <List className="my-list">
-                        {songList}
-                    </List>
-                </div>
+            <div>
+                <Headnav path={this.props.location.pathname}/>
+                <div className="newSong" ref="newsWrpper" >
+                    <div className="wrap">
+                        <Carousel
+                            autoplay
+                            infinite
+                            selectedIndex={1}
+                            autoplayInterval={3000}
+                            resetAutoplay={false}
+                            beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                            afterChange={index => console.log('slide to', index)}
+                        >
+                            {carousel}
+                        </Carousel>
+                        <List className="my-list">
+                            {songList}
+                        </List>
+                    </div>
 
+                </div>
             </div>
+
 
         )
     }

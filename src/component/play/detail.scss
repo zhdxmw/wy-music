@@ -1,0 +1,132 @@
+.playerDetail{
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  width: 100%;
+  top:45px;
+  left: 0;
+  height: calc(100% - 45px);
+  z-index: 111;
+  &.hide{
+    display: none;
+  }
+  .detail-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+    z-index:2;
+    img{
+      position: absolute;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+  .detail-content{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    .head-title{
+      display: flex;
+      height:40px;
+      font-size: 18px;
+      color: #ffffff;
+      .back{
+        width:8%;
+        background: url("../../static/images/goback_icon.png") center no-repeat;
+        background-size: 50%;
+      }
+      .title{
+        width: 84%;
+        text-align: center;
+        line-height: 42px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .singerImg{
+      text-align: center;
+      margin:30px 0;
+      img{
+        width: 40%;
+        border-radius: 50%;
+        border: 4px solid rgba(156, 141, 141, 0.6);
+        animation: rotate 4s infinite ease-in-out;
+      }
+    }
+    .lyrics{
+      height: 76px;
+      overflow: hidden;
+      color: #fff;
+      font-size: 14px;
+      padding:16px 10px 0px 10px;
+      p{
+        text-align: center;
+        line-height: 8px;
+      }
+    }
+    .slider-wrap{
+      display: flex;
+      margin-top: 35px;
+      align-items: center;
+      padding: 0 10px;
+      .current-time,.duration{
+        width: 10%;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+      }
+      .slider{
+        width: 80%;
+      }
+    }
+    .control-panel{
+      display: flex;
+      height: 50px;
+      padding: 0 15%;
+      margin-top: 36px;
+      div{
+        width: calc(100%/3);
+        height: 100%;
+      }
+      .prev-song{
+        background: url("../../static/images/play_prev.png") center no-repeat;
+        background-size: 40%;
+      }
+      .player-pause{
+        background: url("../../static/images/pause_icon.png") center no-repeat;
+        background-size: 50%;
+      }
+      .player-play{
+        background: url("../../static/images/play_icon.png") center no-repeat;
+        background-size: 50%;
+      }
+      .next-song{
+        background:url("../../static/images/play_next.png") center no-repeat;
+        background-size: 40%;
+      }
+    }
+  }
+}
+
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(45deg);
+  }
+  50%{
+     transform: rotate(0deg);
+  }
+  75%{
+    transform: rotate(-45deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}

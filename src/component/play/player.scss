@@ -6,6 +6,10 @@
   background: rgba(0,0,0,0.8);
   padding: 7px;
   z-index:11;
+  transition: bottom 0.2s;
+  &.hide-player{
+    bottom: -64px;
+  }
   .audio-panel{
     color: #ffffff;
     display: flex;
@@ -46,5 +50,37 @@
   .player-icon{
     width: 50px;
     height: 50px;
+  }
+  .audioControl{
+    position: absolute;
+    z-index: 2;
+    bottom: 70px;
+    width: 35px;
+    height:35px;
+    background-color:rgba(0,0,0,0.8);
+    border-radius: 50%;
+    animation: down-up 2s infinite linear;
+    &.open-audio{
+      background-image: url("../../static/images/open_icon.png");
+    }
+    &.close-audio{
+      background-image: url("../../static/images/close_icon.png");
+    }
+    &.audioLoading{
+      background-image: url("../../static/images/loading.gif");
+      background-size: 35px 35px;
+    }
+  }
+}
+
+@keyframes down-up {
+  0%{
+    bottom: 72px;
+  }
+  50%{
+    bottom: 65px;
+  }
+  100%{
+    bottom:72px;
   }
 }

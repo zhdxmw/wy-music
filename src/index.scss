@@ -3,9 +3,8 @@ html,body,#root,.router{
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
-.text-hide{
+@mixin text-hide{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

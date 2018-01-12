@@ -9,6 +9,7 @@ import App from '../App'
 import NewSong from '../view/newsong/Index'
 import Rank from '../view/rank/Index'
 import RankInfo from '../view/rank/Info'
+import RankList from '../view/rank/List'
 import history from '../history'
 class ROUTER extends React.Component{
     render() {
@@ -22,8 +23,9 @@ class ROUTER extends React.Component{
                             {/*<li><Link to="/rankInfo/11">info</Link></li>*/}
                         {/*</ul>*/}
                         <Route exact path='/' component={NewSong}/>
-                        <Route  path='/rank/:id' component={Rank}/>
-                        <Route path='/rankInfo/:id' component={RankInfo}/>
+                        <Route  path='/rank' component={Rank}/>
+                        <Route  path='/rankList/:id' component={RankList}/>
+                        <Route path='/rankInfo' component={RankInfo}/>
                     </App>
                 </Router>
             </div>

@@ -1,0 +1,68 @@
+.rank-list{
+  .list-wrap{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 45px);
+    top: 45px;
+    left: 0;
+    overflow: hidden;
+    .kv-wrap{
+      display: flex;
+      height: 200px;
+      width: 100%;
+      align-items: center;
+      overflow: hidden;
+      img{width: 100%;}
+    }
+    .listItem{
+      .item-wrap {
+        display: flex;
+        height: 50px;
+        align-items: center;
+        width: 98%;
+        border-bottom: 1px solid #ccc;
+        margin-left: 2%;
+        .rank-index {
+          width: 10%;
+          text-align: center;
+          font-size: 12px;
+          .front{
+            color: #ffffff;
+            display: inline-block;
+            width: 22px;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 6px;
+          }
+        }
+        .song-name{
+          width: 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .deal{
+          width: 10%;
+        }
+      }
+      &:first-child{
+        .front{
+          background: #E80000;
+        }
+      }
+      &:nth-child(2){
+        .front{
+          background: #FF7200;
+        }
+      }
+      &:nth-child(3){
+        .front{
+          background: #F8B300;
+        }
+      }
+
+
+    }
+
+  }
+}

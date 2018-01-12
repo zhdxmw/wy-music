@@ -1,0 +1,26 @@
+.headnav {
+  position: fixed;
+  top: 45px;
+  width: 100%;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 43px;
+  background: #ffffff; }
+  .headnav a {
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    color: #000;
+    line-height: 42px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .headnav a.active {
+      font-size: 16px;
+      color: #26a2ff;
+      border-bottom: 3px solid #26a2ff; }
+
+/*# sourceMappingURL=headnav.css.map */

@@ -1,6 +1,8 @@
 export const SET_List = 'SET_List'
 export const PLAY_SONG = 'PLAY_SONG'
 export const PLAY_STATE = 'PLAY_STATE'
+export const PLAY_LOADING = 'PLAY_LOADING'
+
 export function setList(data) {
     return {
         type: SET_List,
@@ -21,3 +23,12 @@ export function playState(data) {
         data
     }
 }
+
+export function Loadding(data) {
+    return {
+        type : PLAY_LOADING,
+        data
+    }
+}
+
+

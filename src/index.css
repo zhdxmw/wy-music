@@ -2,12 +2,6 @@ html, body, #root, .router {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden; }
-
-.text-hide {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
+  height: 100%; }
 
 /*# sourceMappingURL=index.css.map */

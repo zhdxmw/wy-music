@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Headnav from './Headnav'
 import './header.css'
 import logo from '../../static/images/logo.png'
 
@@ -13,7 +12,6 @@ class Header extends React.Component{
                         <img src={logo} alt=""/>
                     </Link>
                 </div>
-                <Headnav/>
             </div>
         )
     }

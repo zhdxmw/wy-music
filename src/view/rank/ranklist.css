@@ -1,0 +1,48 @@
+.rank-list .list-wrap {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 45px);
+  top: 45px;
+  left: 0;
+  overflow: hidden; }
+  .rank-list .list-wrap .kv-wrap {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    align-items: center;
+    overflow: hidden; }
+    .rank-list .list-wrap .kv-wrap img {
+      width: 100%; }
+  .rank-list .list-wrap .listItem .item-wrap {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    width: 98%;
+    border-bottom: 1px solid #ccc;
+    margin-left: 2%; }
+    .rank-list .list-wrap .listItem .item-wrap .rank-index {
+      width: 10%;
+      text-align: center;
+      font-size: 12px; }
+      .rank-list .list-wrap .listItem .item-wrap .rank-index .front {
+        color: #ffffff;
+        display: inline-block;
+        width: 22px;
+        height: 16px;
+        line-height: 16px;
+        border-radius: 6px; }
+    .rank-list .list-wrap .listItem .item-wrap .song-name {
+      width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .rank-list .list-wrap .listItem .item-wrap .deal {
+      width: 10%; }
+  .rank-list .list-wrap .listItem:first-child .front {
+    background: #E80000; }
+  .rank-list .list-wrap .listItem:nth-child(2) .front {
+    background: #FF7200; }
+  .rank-list .list-wrap .listItem:nth-child(3) .front {
+    background: #F8B300; }
+
+/*# sourceMappingURL=ranklist.css.map */
