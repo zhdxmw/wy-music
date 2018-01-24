@@ -16,3 +16,6 @@ react-create-app + react + redux + webpack + react-router（4.2）+ antd-mobile 
  npm start
 
  npm run build （发布）
+
+#项目截图
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/a.jpeg)
