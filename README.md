@@ -18,4 +18,13 @@ react-create-app + react + redux + webpack + react-router（4.2）+ antd-mobile 
  npm run build （发布）
 
 #项目截图
+    
 ![](https://github.com/zhdxmw/wy-music/blob/master/project-img/a.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/b.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/c.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/d.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/e.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/f.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/g.jpeg)
+![](https://github.com/zhdxmw/wy-music/blob/master/project-img/h.jpeg)
+
