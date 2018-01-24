@@ -1,0 +1,110 @@
+@mixin query{
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 45px);
+  top:45px;
+  left:0;
+  background: #ffffff;
+  z-index: 11;
+}
+.query-wrap{
+  .show-query{
+    @include query
+  }
+  .hide-query{
+    @include query;
+    display: none;
+  }
+  .query-common{
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    padding: 0 3%;
+    height: 35px;
+    align-items: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    .code{
+      width: 75%;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      height: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      .icon{
+        width: 10%;
+        margin-left: 3%;
+        color: #cccccc;
+      }
+      input{
+        width: 86%;
+        height: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+      }
+    }
+    .btn-wrap{
+      width: 22%;
+      margin-left: 3%;
+    }
+  }
+  .hot-search-wrap{
+    padding: 0 5%;
+    h3{
+      font-size: 16px;
+      color: rgba(27, 54, 214, 0.87);
+    }
+    .hot-search{
+      padding:0;
+      .hot-item{
+        height: 40px;
+        border-bottom: 1px solid #ccc;
+        line-height: 40px;
+        padding-left: 3%;
+        color: #4a4a4a;
+        .icon{
+          width: 20px;
+          float: right;
+          margin: 6px 10px 0 0;
+          height: 30px;
+        }
+      }
+    }
+  }
+  .query-result-wrap{
+    position: absolute;
+    top:70px;
+    height: calc(100% - 70px);
+    left:0;
+    width: 100%;
+    z-index: 11;
+    background: #ffffff;
+    overflow: hidden;
+    .list-item{
+      display: flex;
+      height: 45px;
+      line-height: 45px;
+      width: 97%;
+      margin-left: 3%;
+      border-bottom: 1px solid #ccc;
+      .name{
+        width:90%;
+      }
+      .icon{margin-left: 3%; width: 10%;margin-top: 7px;}
+    }
+  }
+  .bottom-state {
+    width: 98%;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 2%;
+    text-align: center;
+    color: #4a4a4a;
+    border-bottom: 1px solid #ccc;
+  }
+}

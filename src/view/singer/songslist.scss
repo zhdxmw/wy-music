@@ -1,0 +1,75 @@
+.singer-songs-list{
+  .songs-list-wrap{
+    position: absolute;
+    width:100%;
+    height:calc(100% - 45px);
+    top:45px;
+    left:0;
+    overflow: hidden;
+    .kv{
+      background: #ffffff;
+      .kv-img{
+        display: flex;
+        width: 100%;
+        height: 260px;
+        align-items: center;
+        overflow: hidden;
+        img{width: 100%;}
+      }
+
+      .desc{
+        display: flex;
+        font-size: 14px;
+        color: #4a4a4a;
+        padding:0 5%;
+        .show-part-desc{
+          width: 88%;
+          line-height: 20px;
+          overflow: hidden;
+          height:20px;
+        }
+        .show-all-desc{
+          width: 88%;
+          line-height: 20px;
+
+        }
+        .icon{
+          margin:10px 0  0 2%;
+          width: 22px;
+          height: 24px;
+          padding: 0 1px;
+          border:1px solid #4a4a4a;
+          border-radius: 50%;
+        }
+      }
+    }
+    .songs-list{
+      background: #ffffff;
+      margin-top: 10px;
+      .hot-item{
+        width: 98%;
+        margin-left: 2%;
+        display: flex;
+        height: 50px;
+        align-items: center;
+        border-bottom: 1px solid #cccccc;
+        .name{
+          width: 90%;
+          margin-left: 2%;
+        }
+        .icon{
+          width: 10%;
+        }
+      }
+    }
+  }
+  .bottom-state{
+    width:100%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color:#4a4a4a;
+    background: #ffffff;
+    border-bottom: 1px solid #cccccc;
+  }
+}

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as playerAction from '../redux/action/Index'
 import $http from '../axios'
-const that = this;
 export default (WrappedComponent) => {
     class NewComponent extends React.Component {
         constructor(){
@@ -120,7 +119,7 @@ export default (WrappedComponent) => {
         }
     }
     function mapStateToProps(state) {
-        return {player:state.change_song.player,audio:state.change_song.audio,listInfo:state.change_song.listInfo,audioLoadding:state.change_song.audioLoadding}
+        return {player:state.change_song.player,audio:state.change_song.audio,listInfo:state.change_song.listInfo,audioLoadding:state.change_song.audioLoadding,showQuery:state.change_song.showQuery}
     }
     function mapDispatchToProps(dispatch) {
         return {

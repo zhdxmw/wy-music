@@ -2,6 +2,7 @@ export const SET_List = 'SET_List'
 export const PLAY_SONG = 'PLAY_SONG'
 export const PLAY_STATE = 'PLAY_STATE'
 export const PLAY_LOADING = 'PLAY_LOADING'
+export const TOGGLE_QUERY = 'TOGGLE_QUERY'
 
 export function setList(data) {
     return {
@@ -31,4 +32,10 @@ export function Loadding(data) {
     }
 }
 
+export function query(data) {
+    return {
+        type: TOGGLE_QUERY,
+        data
+    }
+}
 

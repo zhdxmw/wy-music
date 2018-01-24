@@ -1,0 +1,29 @@
+.singer-type{
+  width: 100%;
+  margin-top: 90px;
+  height: calc(100% - 45px);
+  .singer-group{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 15px auto 0 auto;
+    border:1px solid #cccccc;
+    border-radius: 10px;
+    a{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      color: #4a4a4a;
+      border-bottom: 1px solid #cccccc;
+      text-indent: 20px;
+      &:last-child{
+        border:none;
+      }
+      .icon{
+        float: right;
+        margin: 8px 10px 0 0 ;
+      }
+    }
+  }
+
+}

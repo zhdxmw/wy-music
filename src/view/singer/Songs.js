@@ -1,14 +1,14 @@
 import React from 'react'
 import $http from '../../axios'
-import Title from '../../component/title/Title'
-import {Icon} from 'antd-mobile'
+import { Icon } from 'antd-mobile'
 import BScroll from 'better-scroll'
-import './list.css'
-import history from '../../history'
+import Title from '../../component/title/Title'
+import WrappedComponent from '../../hoc/Index'
+import './songslist.css'
+
 const options = {
     click:true,
     scrollbar:true,
-    fade: true,
     probeType: 3
 }
 options.pullDownRefresh = {
@@ -20,22 +20,25 @@ options.pullUpLoad = {
     moreTxt: 'Load More',
     noMoreTxt: 'There is no more data'
 }
-class SingerList extends React.Component{
+class SingerSongs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            list: [],
-            title:'',
-            pagesize:0,
-            total:0,
-            page:1,
+            info:{},
+            list:[],
+            page: 1,
+            pageSize:0,
+            isLoading: true,
+            show: false,
+            total: 0,
+            scroller: false,
             bg:'rgba(98,98,98,0.3)',
             load: '',
-            enablescroll: true,
-            scroller: false,
+            enablescroll: true
         }
-        this.getData()
+        this.getData();
     }
+
     componentDidUpdate() {
         if(this.state.scroller){
             this.state.scroller.refresh()
@@ -47,24 +50,23 @@ class SingerList extends React.Component{
     }
 
     getData(callback){
-        $http.get('/proxy/singer/list/?json=true',{
+        $http.get('/proxy/singer/info/?json=true',{
             params:{
-                classid: this.props.match.params.id,
+                singerid:this.props.match.params.id,
                 page: this.state.page
             }
         }).then(res => {
+            const data = res.data;
             const arr = this.state.list;
-            arr.push(...res.data.singers.list.info);
+            arr.push(...data.songs.list)
             this.setState({
+                info: data.info,
                 list: arr,
-                page: res.data.singers.page,
-                pagesize: res.data.singers.pagesize,
-                total: res.data.singers.list.total,
-                title: res.data.classname
+                total: data.songs.total,
+                pageSize: data.songs.pagesize
             })
-
-            const count = res.data.singers.page * res.data.singers.pagesize
-            if(count < res.data.singers.list.total){
+            const count = arr.pagesize * arr.page;
+            if(count < arr.total){
                 this.setState({
                     load: '下拉加载'
                 })
@@ -73,23 +75,21 @@ class SingerList extends React.Component{
                     load: '没有更多数据'
                 })
             }
+
             if(typeof callback === 'function'){
                 callback()
             }
         })
     }
-
-    page(item){
-        history.push('/songs/'+item)
+    toggleDesc(){
+        this.setState({
+            show: !this.state.show
+        })
     }
+
     render(){
         if(this.state.scroller){
-
             this.state.scroller.on('scroll',(pos) => {
-
-
-            })
-            this.state.scroller.on('scrollEnd',(pos) => {
 
             })
             this.state.scroller.on('pullingDown',() => {
@@ -101,7 +101,7 @@ class SingerList extends React.Component{
 
             })
             this.state.scroller.on('pullingUp',() => {
-                const count = this.state.page * this.state.pagesize
+                const count = this.state.page * this.state.pageSize
                 if(this.state.enablescroll && count < this.state.total){
                     this.setState({
                         enablescroll: false,
@@ -116,30 +116,38 @@ class SingerList extends React.Component{
                     })
                 }
             })
-
-
         }
-        const list = this.state.list.length > 0 && this.state.list.map((item,index) => (
-                <div className="item" key={index}>
-                    <div className="singers" onClick={this.page.bind(this,item.singerid)}>
-                        <div className="singer-img">
-                            <img src={item.imgurl.replace('{size}','400')} alt=""/>
-                        </div>
-                        <div className="name text-hide">
-                            {item.singername}
-                        </div>
-                        <div className="icon">
-                            <Icon type="right"/>
-                        </div>
+
+        const List = this.state.list.length > 0 && this.state.list.map((item,index) => (
+                <div className="hot-item" key={index} onClick={this.props.play.bind(this,this.state.list,index,item.hash)}>
+                    <div className="name text-hide"> {item.filename} </div>
+                    <div className="icon">
+                        <Icon type="right"/>
                     </div>
                 </div>
             ))
+        const kvImg = this.state.info.imgurl && this.state.info.imgurl.replace('{size}','400')
+
         return (
-            <div className="singer-list-wrap">
-                <Title title={this.state.title} bg={this.state.bg}/>
-                <div className="singer-list" ref={el => this.list = el}>
+            <div className="singer-songs-list" >
+                <Title title={this.state.info.singername} bg={this.state.bg}/>
+                <div className="songs-list-wrap" ref={(el) => this.list = el}>
                     <div className="container">
-                        {list}
+                        <div className="kv">
+                            <div className="kv-img">
+                                <img src={kvImg} alt=""/>
+                            </div>
+
+                            <div className="desc">
+                                <p className={this.state.show ? 'show-all-desc' : 'show-part-desc'}> {this.state.info.intro} </p>
+                                <div className="icon" onClick={this.toggleDesc.bind(this)}>
+                                    <Icon type={this.state.show ? 'up' : 'down'} size="md"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="songs-list">
+                            {List}
+                        </div>
                         <div className="bottom-state">
                             {this.state.load}
                         </div>
@@ -149,5 +157,5 @@ class SingerList extends React.Component{
         )
     }
 }
-
-export default SingerList
+SingerSongs = WrappedComponent(SingerSongs)
+export default SingerSongs

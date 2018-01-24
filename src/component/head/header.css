@@ -14,5 +14,10 @@
       height: 100%; }
   .header .headnav {
     margin-top: 45px; }
+  .header .query-icon {
+    float: right;
+    width: 42px;
+    color: #ffffff;
+    margin-top: 2px; }
 
 /*# sourceMappingURL=header.css.map */

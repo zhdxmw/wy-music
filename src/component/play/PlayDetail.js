@@ -1,6 +1,6 @@
 import React from 'react'
 import WrappedComponent from '../../hoc/Index'
-import { Slider,WingBlank } from 'antd-mobile'
+import { Slider } from 'antd-mobile'
 import './detail.css'
 class PlayerDetail extends React.Component{
     constructor(props){
@@ -28,7 +28,7 @@ class PlayerDetail extends React.Component{
             temp = temp.splice(0, temp.length - 1);
             temp = temp.map((value)=> {
                 var time = value.substr(1, 5);
-                var seconds = parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]);
+                var seconds = parseInt(time.split(':')[0],10) * 60 + parseInt(time.split(':')[1],10);
                 var lrcContent = value.substr(10);
                 return {
                     seconds,

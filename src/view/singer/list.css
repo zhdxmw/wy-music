@@ -1,0 +1,34 @@
+.singer-list-wrap .singer-list {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 45px);
+  top: 45px;
+  left: 0;
+  overflow: hidden; }
+  .singer-list-wrap .singer-list .item {
+    padding-left: 2%; }
+    .singer-list-wrap .singer-list .item .singers {
+      display: flex;
+      align-items: center;
+      height: 80px;
+      border-bottom: 1px solid #ccc;
+      color: #4a4a4a; }
+      .singer-list-wrap .singer-list .item .singers .singer-img {
+        width: 20%;
+        margin-left: 2%; }
+        .singer-list-wrap .singer-list .item .singers .singer-img img {
+          width: 60px; }
+      .singer-list-wrap .singer-list .item .singers .name {
+        width: 70%; }
+      .singer-list-wrap .singer-list .item .singers .icon {
+        width: 10%; }
+.singer-list-wrap .bottom-state {
+  width: 98%;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 2%;
+  text-align: center;
+  color: #4a4a4a;
+  border-bottom: 1px solid #ccc; }
+
+/*# sourceMappingURL=list.css.map */

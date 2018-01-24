@@ -1,10 +1,9 @@
 import React from 'react'
 import $http from '../../axios'
 import BScroll from 'better-scroll'
-import {Carousel,WhiteSpace,WingBlank,List} from 'antd-mobile'
+import {Carousel,List} from 'antd-mobile'
 import WrappedComponent from '../../hoc/Index'
 import './newSong.css'
-import playIcon from '../../static/images/order-ring.png'
 import Headnav from '../../component/head/Headnav'
 
 const Item = List.Item;
@@ -50,7 +49,7 @@ class NewSong extends React.Component{
     }
 
     render() {
-        var songList = this.state.songList.map((item,index) => (
+        var songList = this.state.songList && this.state.songList.length > 0 && this.state.songList.map((item,index) => (
             <Item className="rankItem" onClick = {this.props.play.bind(this,this.state.songList,index,item.hash)} multipleLine key = {index} arrow = "horizontal">
                 {item.filename}
             </Item>
@@ -58,11 +57,12 @@ class NewSong extends React.Component{
         var carousel = this.state.bannerList.map((item,index) => (
             <a
                 key={index}
-                href="javascript:void(0)"
+                href="/"
                 style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >
                 <img
                     src={item.imgurl}
+                    alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
                     onLoad={() => {
                         // fire window resize event to change height

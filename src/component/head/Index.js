@@ -1,9 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {Icon} from 'antd-mobile'
+import {connect} from 'react-redux'
+import * as playerAction from '../../redux/action/Index'
+import {bindActionCreators} from 'redux'
 import './header.css'
 import logo from '../../static/images/logo.png'
 
 class Header extends React.Component{
+    toggleQuery(){
+        var showQuery = !this.props.showQuery;
+        this.props.changeSongActions.query({showQuery:showQuery})
+    }
     render() {
         return (
             <div className="header">
@@ -11,10 +19,25 @@ class Header extends React.Component{
                     <Link className="home" to="/">
                         <img src={logo} alt=""/>
                     </Link>
+                    <div className="query-icon" onClick={this.toggleQuery.bind(this)}>
+                        <Icon type="search"/>
+                    </div>
                 </div>
             </div>
         )
     }
 }
+function mapStateToProps(state) {
+    return {showQuery:state.change_song.showQuery}
+}
 
-export default Header
+function mapDispatchToProps(dispatch) {
+    return {
+        changeSongActions: bindActionCreators(playerAction,dispatch)
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Header)

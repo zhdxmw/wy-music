@@ -1,0 +1,42 @@
+.hotList{
+  .list-wrap{
+    margin-top: 45px;
+    padding-left: 2%;
+    .list-item{
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      a{
+        display: flex;
+        height: 100px;
+        align-items: center;
+        color: #000000;
+      }
+      .hot-img{
+        width: 100px;
+        img{width: 80px;padding: 10px;}
+      }
+      .info{
+        width: 60%;
+        margin: 0 10px;
+        font-size: 13px;
+      }
+      .num{
+        color: #737070;
+        margin-top: 6px;
+        font-size: 12px;
+        .count-icon{
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url("../../static/images/icon_music.png") no-repeat;
+          vertical-align: text-bottom;
+          margin-right: 10px;
+        }
+      }
+      .icon{
+        width: 10%;
+        color: #cccccc;
+      }
+    }
+  }
+}

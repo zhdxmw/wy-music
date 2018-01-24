@@ -1,0 +1,63 @@
+.hot-list-info .hot-songs-list {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 90px);
+  top: 45px;
+  left: 0;
+  overflow: hidden; }
+  .hot-list-info .hot-songs-list .kv {
+    background: #ffffff; }
+    .hot-list-info .hot-songs-list .kv .kv-img {
+      display: flex;
+      width: 100%;
+      height: 260px;
+      align-items: center;
+      overflow: hidden; }
+      .hot-list-info .hot-songs-list .kv .kv-img img {
+        width: 100%; }
+    .hot-list-info .hot-songs-list .kv .desc {
+      display: flex;
+      font-size: 14px;
+      color: #4a4a4a;
+      padding: 0 5%; }
+      .hot-list-info .hot-songs-list .kv .desc .show-part-desc {
+        width: 88%;
+        line-height: 20px;
+        overflow: hidden;
+        height: 20px; }
+      .hot-list-info .hot-songs-list .kv .desc .show-all-desc {
+        width: 88%;
+        line-height: 20px; }
+      .hot-list-info .hot-songs-list .kv .desc .icon {
+        margin: 10px 0  0 2%;
+        width: 22px;
+        height: 24px;
+        padding: 0 1px;
+        border: 1px solid #4a4a4a;
+        border-radius: 50%; }
+  .hot-list-info .hot-songs-list .songs-list {
+    background: #ffffff;
+    margin-top: 10px; }
+    .hot-list-info .hot-songs-list .songs-list .hot-item {
+      width: 98%;
+      margin-left: 2%;
+      display: flex;
+      height: 50px;
+      align-items: center;
+      border-bottom: 1px solid #cccccc; }
+      .hot-list-info .hot-songs-list .songs-list .hot-item .name {
+        width: 90%;
+        margin-left: 2%; }
+      .hot-list-info .hot-songs-list .songs-list .hot-item .icon {
+        width: 10%; }
+.hot-list-info .bottom-state {
+  position: fixed;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #4a4a4a;
+  background: #ffffff;
+  bottom: 0; }
+
+/*# sourceMappingURL=list.css.map */

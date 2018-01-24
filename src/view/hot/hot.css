@@ -1,0 +1,36 @@
+.hotList .list-wrap {
+  margin-top: 45px;
+  padding-left: 2%; }
+  .hotList .list-wrap .list-item {
+    width: 100%;
+    border-bottom: 1px solid #ccc; }
+    .hotList .list-wrap .list-item a {
+      display: flex;
+      height: 100px;
+      align-items: center;
+      color: #000000; }
+    .hotList .list-wrap .list-item .hot-img {
+      width: 100px; }
+      .hotList .list-wrap .list-item .hot-img img {
+        width: 80px;
+        padding: 10px; }
+    .hotList .list-wrap .list-item .info {
+      width: 60%;
+      margin: 0 10px;
+      font-size: 13px; }
+    .hotList .list-wrap .list-item .num {
+      color: #737070;
+      margin-top: 6px;
+      font-size: 12px; }
+      .hotList .list-wrap .list-item .num .count-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url("../../static/images/icon_music.png") no-repeat;
+        vertical-align: text-bottom;
+        margin-right: 10px; }
+    .hotList .list-wrap .list-item .icon {
+      width: 10%;
+      color: #cccccc; }
+
+/*# sourceMappingURL=hot.css.map */

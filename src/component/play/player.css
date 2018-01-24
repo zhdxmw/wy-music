@@ -5,7 +5,7 @@
   height: 50px;
   background: rgba(0, 0, 0, 0.8);
   padding: 7px;
-  z-index: 11;
+  z-index: 12;
   transition: bottom 0.2s; }
   .player.hide-player {
     bottom: -64px; }

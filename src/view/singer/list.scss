@@ -1,0 +1,38 @@
+.singer-list-wrap{
+  .singer-list{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 45px);
+    top:45px;
+    left:0;
+    overflow: hidden;
+    .item{
+      padding-left: 2%;
+      .singers{
+        display: flex;
+        align-items: center;
+        height: 80px;
+        border-bottom: 1px solid #ccc;
+        color: #4a4a4a;
+        .singer-img{
+          width:20%;
+          margin-left: 2%;
+          img{width: 60px;}
+        }
+        .name{
+          width: 70%;
+        }
+        .icon{width: 10%;}
+      }
+    }
+  }
+  .bottom-state{
+    width:98%;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 2%;
+    text-align: center;
+    color: #4a4a4a;
+    border-bottom: 1px solid #ccc;
+  }
+}

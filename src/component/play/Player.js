@@ -30,7 +30,7 @@ class Player extends React.Component{
                     {this.props.audioLoadding}
                 </div>
                 <div className="audio-panel">
-                    <img src={this.props.audio.imgUrl} className="player-icon" onClick={this.hah.bind(this)}/>
+                    <img src={this.props.audio.imgUrl} className="player-icon" onClick={this.hah.bind(this)} alt=""/>
                     <div className="song-info">
                         <div className="song text-hide">{this.props.audio.title}</div>
                         <div className="singer text-hide">{this.props.audio.singer}</div>
