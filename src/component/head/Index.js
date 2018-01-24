@@ -12,11 +12,14 @@ class Header extends React.Component{
         var showQuery = !this.props.showQuery;
         this.props.changeSongActions.query({showQuery:showQuery})
     }
+    hideQuery(){
+        this.props.changeSongActions.query({showQuery:false})
+    }
     render() {
         return (
             <div className="header">
                 <div className="logo-container">
-                    <Link className="home" to="/">
+                    <Link className="home" to="/" onClick={this.hideQuery.bind(this)}>
                         <img src={logo} alt=""/>
                     </Link>
                     <div className="query-icon" onClick={this.toggleQuery.bind(this)}>
