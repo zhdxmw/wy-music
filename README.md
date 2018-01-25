@@ -23,6 +23,7 @@ react-create-app + react + redux + webpack + react-router（4.2）+ antd-mobile 
  #多代理设置
  ---
  package.json 中
+ 
  "proxy": {
     "/proxy/":{
       "target": "http://m.kugou.com",
