@@ -25,6 +25,7 @@ react-create-app + react + redux + webpack + react-router（4.2）+ antd-mobile 
  package.json 中
  
  "proxy": {
+ 
     "/proxy/":{
       "target": "http://m.kugou.com",
       "secure": false,
