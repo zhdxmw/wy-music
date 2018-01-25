@@ -19,6 +19,30 @@ react-create-app + react + redux + webpack + react-router（4.2）+ antd-mobile 
  npm start
 
  npm run build （发布）
+ 
+ #多代理设置
+ ---
+ package.json 中
+ "proxy": {
+    "/proxy/":{
+      "target": "http://m.kugou.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {"^/proxy" : ""}
+    },
+    "/sproxy/": {
+      "target": "http://mobilecdn.kugou.com/api/v3",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {"^/sproxy": ""}
+    },
+    "/dproxy/": {
+      "target": "http://www.kugou.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {"^/dproxy": ""}
+    }
+  }
 
 #项目截图
 ---------
